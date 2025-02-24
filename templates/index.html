@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% block title %}Stoły{% endblock %}
+{% block content %}
+
+     <!-- stations -->
+     <section class="stations">
+        <div tabindex="0" class="collapse border-base-300 bg-base-200 border">
+          <div class="collapse-title text-xl font-medium">Stations</div>
+          <div class="collapse-content">
+            <div>
+              {% include "blocks/_station.html" %}
+            </div>
+            </div>
+        </div>
+      </section>
+      <!-- work block-->
+       <section class="work">
+        <div class="divider divider-primary m-5">Work for shift</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5" id="P4Xe">
+            {% include "blocks/_work.html" %}
+          </div>
+       </section>
+    </div>
+{% endblock %}

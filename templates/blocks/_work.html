@@ -1,0 +1,33 @@
+{% for work in data.final_response %}
+<div class="card w-96 shadow-xl bg-base-100">
+    <div class="card-body bg-base-100">
+        <div class="flex flex-col">
+            <h1 class="card-title font-weight">{{ work.artikel }}</h1>
+            <span class="text-red-300 data-work">{{ work.dataWork }}</span>
+
+        </div>
+        <h4 class="description">{{ work.description }}</h4>
+        <span class="text-ed-600 text-xl font-bold note ">{{ work.note }}</span>
+        <div class="flex">
+            <span class="text-red-600 font-bold text-xl qty">{{ work.menge }}</span>
+            <span class="text-gray-600 ml-2 p-0">szt. | </span> <span class="text-gray-600 font-bold text-xl ml-2">{{ work.time_work }}</span>
+        </div>
+        <div class="divider">regal / stations</div>
+        <div>
+            {% for regal in work.materials %}
+            <p>
+                <span class="material_name cursor-pointer text-blue-500" data-material="{{ regal.Artikel }}">
+                    {{ regal.Artikel }}
+                </span>
+                 - 
+                <span class="text-yellow-600">
+                    {{ regal.FachName }}
+                </span> - {{ regal.Menge }} szt.
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+

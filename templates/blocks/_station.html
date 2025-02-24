@@ -1,0 +1,15 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2" id="stations">
+    {% for station in data.stations %}
+    <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">{{ station.Station }}</h2>
+        <div>
+          {% for material in station.material %}
+          <p class="text-gray-600">{{ material.artikel  }} <span class="text-red-600 font-bold">{{ material.menge }}</span> szt.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
