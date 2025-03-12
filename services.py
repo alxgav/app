@@ -83,16 +83,18 @@ def get_final_data(df: pd.DataFrame = merge_data()) -> list:
         article_parts = re.split("-|B", article)
         
         # Filter materials based on the article parts
-        if article_parts[1].isdigit():
-            filtered_materials = materials[
-                materials['artikel_split_2_y'].notna() &  # Ensure not NaN
-                materials['artikel_split_2_y'].astype(str).str.isdigit()  # Check if digit
-            ]
-        else:
-            filtered_materials = materials[
-                materials['artikel_split_2_y'].notna() &  # Ensure not NaN
-                materials['artikel_split_2_y'].astype(str).str.contains('E')  # Check if contains 'E'
-            ]
+        print(article_parts)
+        if len(article_parts)== 2:
+            if article_parts[1].isdigit():
+                filtered_materials = materials[
+                    materials['artikel_split_2_y'].notna() &  # Ensure not NaN
+                    materials['artikel_split_2_y'].astype(str).str.isdigit()  # Check if digit
+                ]
+            else:
+                filtered_materials = materials[
+                    materials['artikel_split_2_y'].notna() &  # Ensure not NaN
+                    materials['artikel_split_2_y'].astype(str).str.contains('E')  # Check if contains 'E'
+                ]
         
             # Convert filtered_materials to a list of dictionaries for JSON serialization
         filtered_materials_list = filtered_materials.to_dict(orient='records')

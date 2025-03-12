@@ -35,7 +35,7 @@ def upload_file():
         return 'File uploaded successfully'
 
 @app.route("/")
-def hello_world():
+def index():
     stations = services.get_stations()
     final_response = services.get_final_data()
     data = {
